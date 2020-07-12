@@ -11,15 +11,18 @@ import { red } from "@material-ui/core/colors";
 import LinkIcon from "@material-ui/icons/Link";
 import Brightness5Icon from "@material-ui/icons/Brightness5";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import image from "_assets/images/solar_car.jpg";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      maxWidth: 345,
-      margin: ".5vh",
-      alignSelf: "flex-start",
+      maxWidth: 728,
+      marginRight: "auto",
+      marginLeft: "auto",
+      margin: "1vh",
+      // alignSelf: "flex-start",
     },
     media: {
       height: 0,
@@ -32,45 +35,38 @@ const useStyles = makeStyles((theme: Theme) =>
         duration: theme.transitions.duration.shortest,
       }),
     },
-    expandOpen: {
-      transform: "rotate(180deg)",
-    },
     avatar: {
       backgroundColor: red[500],
     },
+    a: {
+      color: "inherit" /* blue colors for links too */,
+      textDecoration: "inherit" /* no underline */,
+    },
   })
 );
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+// const Wrapper = styled.div`
+//   display: flex;
+//   flex-direction: column;
+// `;
 
 export default function RecipeReviewCard() {
   const classes = useStyles();
 
   return (
-    <Wrapper>
-      <Card className={classes.root}>
+    // <Wrapper>
+    <Card className={classes.root}>
+      <a href="http://google.com" target="_blank" className={classes.a}>
         <CardHeader
           title="georgia tech solar racing"
-          subheader="October 2016 - May 2019"
+          subheader="october 2016 - may 2019: i spent a years building a car to travel across the united states"
         />
-        <CardActions>
-          <a href="http://solarracing.gatech.edu/about-us/" target="_blank">
-            <IconButton aria-label="go to gt's solar racing site">
-              <LinkIcon />
-            </IconButton>
-          </a>
-          <IconButton onClick={() => {}} aria-label="show more">
-            <Brightness5Icon />
-          </IconButton>
-        </CardActions>
         <CardMedia
           className={classes.media}
           image={image}
           title="Paella dish"
         />
-      </Card>
-    </Wrapper>
+      </a>
+    </Card>
+    // {/* // </Wrapper> */}
   );
 }
